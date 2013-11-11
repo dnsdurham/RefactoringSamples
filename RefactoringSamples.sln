@@ -13,10 +13,39 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4. Accessors", "4. Accessor
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "9. Tests", "9. Tests", "{CFAECDD3-0AB8-401D-8666-38931A4C0361}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Notes", "_Notes", "{3DF8D270-79C2-4D6F-B4FC-EDD297FD1A3C}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Solution Items", "_Solution Items", "{3DF8D270-79C2-4D6F-B4FC-EDD297FD1A3C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refactoring.Managers", "Refactoring.Managers\Refactoring.Managers.csproj", "{EDFD9719-DACE-45CB-BB95-508DBB1248A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refactoring.ResourceAccessors", "Refactoring.ResourceAccessors\Refactoring.ResourceAccessors.csproj", "{A0B2F1F8-8D90-4AD9-B048-6BB9190E5662}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refactoring.BillingConsole", "Refactoring.BillingConsole\Refactoring.BillingConsole.csproj", "{A7821A13-C0DF-449E-AAB9-43EFD6FD31D1}"
 EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EDFD9719-DACE-45CB-BB95-508DBB1248A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDFD9719-DACE-45CB-BB95-508DBB1248A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDFD9719-DACE-45CB-BB95-508DBB1248A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDFD9719-DACE-45CB-BB95-508DBB1248A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0B2F1F8-8D90-4AD9-B048-6BB9190E5662}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0B2F1F8-8D90-4AD9-B048-6BB9190E5662}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0B2F1F8-8D90-4AD9-B048-6BB9190E5662}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0B2F1F8-8D90-4AD9-B048-6BB9190E5662}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7821A13-C0DF-449E-AAB9-43EFD6FD31D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7821A13-C0DF-449E-AAB9-43EFD6FD31D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7821A13-C0DF-449E-AAB9-43EFD6FD31D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7821A13-C0DF-449E-AAB9-43EFD6FD31D1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A7821A13-C0DF-449E-AAB9-43EFD6FD31D1} = {B906F4ED-CAA4-409E-BAB5-8F006CD28258}
+		{EDFD9719-DACE-45CB-BB95-508DBB1248A8} = {8D66D2A7-63CF-4518-8C2E-CF6DC0912FCF}
+		{A0B2F1F8-8D90-4AD9-B048-6BB9190E5662} = {297FDB21-DB6A-4609-85FF-0F1E03700E01}
 	EndGlobalSection
 EndGlobal
