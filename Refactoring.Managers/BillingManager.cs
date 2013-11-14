@@ -1,4 +1,5 @@
 ﻿using Refactoring.DataContracts;
+using Refactoring.Engines;
 using Refactoring.ResourceAccessors;
 using System;
 using System.Collections.Generic;
@@ -18,10 +19,12 @@ namespace Refactoring.Managers
         public string GenerateStatement(int customerId)
         {
             double totalAmount = 0;
-            int frequentRenterPoints = 0;
 
             ICustomerAccessor custAccessor = this.AccessorFactory.CreateAccessor<ICustomerAccessor>(); // using our factory DI pattern
             Customer customer = custAccessor.GetCustomerById(customerId);
+
+            IPricingEngine pricingEngine = this.EngineFactory.CreateEngine<IPricingEngine>();
+            IFrequentRenterEngine frequentRenterEngine = this.EngineFactory.CreateEngine<IFrequentRenterEngine>();
 
             // setup the statement string builder and add the statement header
             StringBuilder sb = new StringBuilder();
@@ -32,52 +35,20 @@ namespace Refactoring.Managers
             // also calculate frequent renter points
             foreach (var rental in customer.Rentals)
             {
-                double thisAmount = 0;
-
-                // calculate the price
-                switch (rental.PriceCode)
-                {
-                    case PriceCodeType.Regular:
-                        thisAmount += 2;
-                        if (rental.DaysRented >2)
-                        {
-                            thisAmount += (rental.DaysRented - 2) * 1.5;
-                        }
-                        break;
-                    case PriceCodeType.Childrens:
-                        thisAmount += 1.5;
-                        if (rental.DaysRented > 3)
-                        {
-                            thisAmount += (rental.DaysRented - 3) * 1.5;
-                        }
-                        break;
-                    case PriceCodeType.NewRelease:
-                        thisAmount += rental.DaysRented * 3;
-                        break;
-                    default:
-                        break;
-                }
-
-                //calculate the frequent renter points
-                frequentRenterPoints++;
-                // add bonus points for two day new release rental
-                if (rental.PriceCode == PriceCodeType.NewRelease && rental.DaysRented > 1)
-                {
-                    frequentRenterPoints++;
-                }
-
                 // create statement line for this rental
-                sb.AppendLine(rental.MovieName + " " + thisAmount.ToString());
+                sb.AppendLine(rental.MovieName + " " + pricingEngine.GetPrice(rental).ToString());
                 
                 // sum the total amount
-                totalAmount += thisAmount;
+                totalAmount += pricingEngine.GetPrice(rental);
             } 
 
             // add footer line that also show total frequent renter points earned
             sb.AppendLine();
             sb.AppendLine("Amount owed is " + totalAmount.ToString());
             sb.AppendLine();
-            sb.Append("You have earned " + frequentRenterPoints.ToString() + " frequent renter points");
+            sb.Append("You have earned " 
+                + frequentRenterEngine.GetTotalPoints(customer.Rentals).ToString() 
+                + " frequent renter points");
 
             return sb.ToString();
         }

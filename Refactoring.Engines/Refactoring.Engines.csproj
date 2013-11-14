@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{EDFD9719-DACE-45CB-BB95-508DBB1248A8}</ProjectGuid>
+    <ProjectGuid>{08E6560A-99A0-4B4F-9CB2-28065B326AA2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Refactoring.Managers</RootNamespace>
-    <AssemblyName>Refactoring.Managers</AssemblyName>
+    <RootNamespace>Refactoring.Engines</RootNamespace>
+    <AssemblyName>Refactoring.Engines</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,22 +39,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BillingManager.cs" />
-    <Compile Include="ManageBase.cs" />
+    <Compile Include="EngineFactory.cs" />
+    <Compile Include="FrequentRenterEngine.cs" />
+    <Compile Include="PricingEngine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Refactoring.DataContracts\Refactoring.DataContracts.csproj">
       <Project>{0ad843c8-abec-4de0-b186-6e9d0a1fa16c}</Project>
       <Name>Refactoring.DataContracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Refactoring.Engines\Refactoring.Engines.csproj">
-      <Project>{08e6560a-99a0-4b4f-9cb2-28065b326aa2}</Project>
-      <Name>Refactoring.Engines</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Refactoring.ResourceAccessors\Refactoring.ResourceAccessors.csproj">
-      <Project>{a0b2f1f8-8d90-4ad9-b048-6bb9190e5662}</Project>
-      <Name>Refactoring.ResourceAccessors</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
