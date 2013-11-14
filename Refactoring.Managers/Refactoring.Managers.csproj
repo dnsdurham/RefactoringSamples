@@ -40,7 +40,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BillingManager.cs" />
+    <Compile Include="ManageBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Refactoring.DataContracts\Refactoring.DataContracts.csproj">
+      <Project>{0ad843c8-abec-4de0-b186-6e9d0a1fa16c}</Project>
+      <Name>Refactoring.DataContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Refactoring.ResourceAccessors\Refactoring.ResourceAccessors.csproj">
+      <Project>{a0b2f1f8-8d90-4ad9-b048-6bb9190e5662}</Project>
+      <Name>Refactoring.ResourceAccessors</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

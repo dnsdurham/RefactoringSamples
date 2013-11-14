@@ -39,8 +39,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccessorFactory.cs" />
     <Compile Include="CustomerAccessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Refactoring.DataContracts\Refactoring.DataContracts.csproj">
+      <Project>{0ad843c8-abec-4de0-b186-6e9d0a1fa16c}</Project>
+      <Name>Refactoring.DataContracts</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
