@@ -61,6 +61,26 @@ namespace Refactoring.ManagerTests.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;H1&gt;Rental Record for &lt;EM&gt;Gern Blansten&lt;/EM&gt;&lt;/H1&gt;&lt;P&gt;
+        ///
+        ///Jaws 2&lt;BR&gt;
+        ///Star Wars 3.5&lt;BR&gt;
+        ///Toy Story 3&lt;BR&gt;
+        ///Wall-E 1.5&lt;BR&gt;
+        ///Thor 3&lt;BR&gt;
+        ///Superman 6&lt;BR&gt;
+        ///
+        ///&lt;P&gt;Amount owed is &lt;EM&gt;19&lt;/EM&gt;&lt;P&gt;
+        ///
+        ///You have earned &lt;EM&gt;7&lt;/EM&gt; frequent renter points.
+        /// </summary>
+        internal static string SampleHtmlStatement {
+            get {
+                return ResourceManager.GetString("SampleHtmlStatement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Rental Record for Gern Blansten
         ///
         ///Jaws 2

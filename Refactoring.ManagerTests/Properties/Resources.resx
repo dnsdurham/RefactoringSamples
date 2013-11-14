@@ -117,6 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="SampleHtmlStatement" xml:space="preserve">
+    <value>&lt;H1&gt;Rental Record for &lt;EM&gt;Gern Blansten&lt;/EM&gt;&lt;/H1&gt;&lt;P&gt;
+
+Jaws 2&lt;BR&gt;
+Star Wars 3.5&lt;BR&gt;
+Toy Story 3&lt;BR&gt;
+Wall-E 1.5&lt;BR&gt;
+Thor 3&lt;BR&gt;
+Superman 6&lt;BR&gt;
+
+&lt;P&gt;Amount owed is &lt;EM&gt;19&lt;/EM&gt;&lt;P&gt;
+
+You have earned &lt;EM&gt;7&lt;/EM&gt; frequent renter points</value>
+  </data>
   <data name="SampleStatement" xml:space="preserve">
     <value>Rental Record for Gern Blansten
 

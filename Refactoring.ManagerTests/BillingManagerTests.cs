@@ -17,5 +17,15 @@ namespace Refactoring.ManagerTests
 
             Assert.AreEqual(Resources.SampleStatement, statement);
         }
+
+        [TestMethod]
+        public void BillingManager_GenerateHtmlStatement()
+        {
+            BillingManager manager = new BillingManager();
+
+            string statement = manager.GenerateHtmlStatement(1);
+
+            Assert.AreEqual(Resources.SampleHtmlStatement, statement);
+        }
     }
 }
