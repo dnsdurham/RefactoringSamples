@@ -8,6 +8,8 @@ namespace Refactoring.ManagerTests
     [TestClass]
     public class BillingManagerTests
     {
+        // NOTE: These tests are representative only. There would obviously be a lot more tests covering other permutations
+
         [TestMethod]
         public void BillingManager_GenerateStatement()
         {

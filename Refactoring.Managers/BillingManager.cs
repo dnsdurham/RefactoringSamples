@@ -18,6 +18,10 @@ namespace Refactoring.Managers
 
     public class BillingManager : ManageBase, IBillingManager
     {
+        // TODO: Other potential refactorings:
+        // 1. Use a string template for text/html and collapse to a single GenerateStatement method
+        // 2. Move the calculation of the total amount into a method in the PricingEngine that recursively calls GetPrice
+ 
         public string GenerateStatement(int customerId)
         {
             double totalAmount = 0;
