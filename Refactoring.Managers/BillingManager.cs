@@ -14,7 +14,7 @@ namespace Refactoring.Managers
         string GenerateStatement(int customerId);
     }
 
-    public class BillingManager : ManageBase, IBillingManager
+    public class BillingManager : ManagerBase, IBillingManager
     {
         public string GenerateStatement(int customerId)
         {
