@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Refactoring.Managers
 {
-    public class ManageBase
+    public class ManagerBase
     {
         // most managers will require a resource accessors and engines so we are putting these properties in the base class
         // note: we are using a property instead of passing these dependencies in via the method calls
