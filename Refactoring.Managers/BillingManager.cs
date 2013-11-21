@@ -16,7 +16,7 @@ namespace Refactoring.Managers
         string GenerateHtmlStatement(int customerId);
     }
 
-    public class BillingManager : ManageBase, IBillingManager
+    public class BillingManager : ManagerBase, IBillingManager
     {
         // TODO: Other potential refactorings:
         // 1. Use a string template for text/html and collapse to a single GenerateStatement method
