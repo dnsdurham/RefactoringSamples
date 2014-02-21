@@ -11,7 +11,8 @@ namespace Refactoring.ManagerTests.Mocks
     {
         public double GetPrice(Refactoring.DataContracts.Rental rental)
         {
-            throw new NotImplementedException();
+            // always return 1.0 for price
+            return 1.0;
         }
     }
 }

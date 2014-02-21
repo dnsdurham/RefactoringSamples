@@ -117,6 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="MockSampleStatement" xml:space="preserve">
+    <value>Rental Record for Gern Blansten
+
+Jaws 1
+Star Wars 1
+Toy Story 1
+Wall-E 1
+Thor 1
+Superman 1
+
+Amount owed is 6
+
+You have earned 1 frequent renter points</value>
+  </data>
   <data name="SampleStatement" xml:space="preserve">
     <value>Rental Record for Gern Blansten
 

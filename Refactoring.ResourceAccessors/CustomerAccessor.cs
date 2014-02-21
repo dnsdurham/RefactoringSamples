@@ -17,6 +17,7 @@ namespace Refactoring.ResourceAccessors
         {
 
             // hardcoded to provide sample data
+            // normally this would be doing some data access to a database or something
             return new Customer
             {
                 Name = "Gern Blansten",

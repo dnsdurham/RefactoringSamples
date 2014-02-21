@@ -11,7 +11,8 @@ namespace Refactoring.ManagerTests.Mocks
     {
         public int GetTotalPoints(Refactoring.DataContracts.Rental[] rentals)
         {
-            throw new NotImplementedException();
+            // always return 1 point
+            return 1;
         }
     }
 }
