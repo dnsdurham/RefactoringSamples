@@ -16,7 +16,7 @@ namespace Refactoring.Engines
         public T CreateEngine<T>() where T : class
         {
             // Evaluate the class type name and return the correct engine
-            // NOTE: We expect an interface for an engine factory (not an engine) to be passed in
+            // NOTE: We expect an interface for an engine (not an engine) to be passed in
             string typeName = typeof(T).Name;
             switch (typeName)
             {

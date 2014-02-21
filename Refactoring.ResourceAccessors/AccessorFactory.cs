@@ -16,7 +16,7 @@ namespace Refactoring.ResourceAccessors
         public T CreateAccessor<T>() where T : class
         {
             // Evaluate the class type name and return the correct accessor
-            // NOTE: We expect an interface for an accessor factory (not an accessor) to be passed in
+            // NOTE: We expect an interface for an accessor (not an accessor) to be passed in
             string typeName = typeof(T).Name;
             switch (typeName)
             {
