@@ -1,23 +1,22 @@
 ﻿using Refactoring.DataContracts;
+using Refactoring.ResourceAccessors;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Refactoring.ResourceAccessors
+namespace Refactoring.ManagerTests.Mocks
 {
-    public interface ICustomerAccessor
-    {
-        Customer GetCustomerById(int customerId);
-    }
-    class CustomerAccessor : ICustomerAccessor
+    class MockCustomerAccessor : ICustomerAccessor
     {
         public Customer GetCustomerById(int customerId)
         {
 
             // hardcoded to provide sample data
-            // normally this would be doing some data access to a database or something
+            // I realize this is exactly the same as the actual Customer Accessor but this is more representative
+            // of what a mock accessor would look and the actual Customer Accessor would be using an actual 
+            // customer database
             return new Customer
             {
                 Name = "Gern Blansten",
