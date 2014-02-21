@@ -15,6 +15,8 @@ namespace Refactoring.BillingConsole
 
             Console.WriteLine("Enter the customer id [default = 1]:");
             string result = Console.ReadLine();
+            result = String.IsNullOrEmpty(result) ? "1" : result; // handle a default value
+
             if (Int32.TryParse(result, out customerId))
             {
                 BillingManager manager = new BillingManager();

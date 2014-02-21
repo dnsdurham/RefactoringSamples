@@ -27,13 +27,17 @@ namespace Refactoring.ManagerTests
         [TestMethod]
         public void BillingManager_GenerateHtmlStatement()
         {
+            // This test is not using any mock factories or engines
             BillingManager manager = new BillingManager();
 
             string statement = manager.GenerateHtmlStatement(1);
 
+            // We are using a sample statement from a resource here but this might have to be more complicated
+            // in the real world
             Assert.AreEqual(Resources.SampleHtmlStatement, statement);
         }
         
+        [TestMethod]
         public void BillingManager_GenerateStatementMocks()
         {
             // This test will show how to override the factories on the billing manager to use mock factories 
@@ -46,7 +50,7 @@ namespace Refactoring.ManagerTests
             string statement = manager.GenerateStatement(1);
 
             // Note that we use the "MockSampleStatament" here for comparison
-            //Assert.AreEqual(Resources.MockSampleStatement, statement);
+            Assert.AreEqual(Resources.MockSampleStatement, statement);
         }
     }
 }
