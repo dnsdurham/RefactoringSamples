@@ -1,4 +1,5 @@
-﻿using Refactoring.Managers;
+﻿using Microsoft.Practices.ServiceLocation;
+using Refactoring.Managers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,8 @@ namespace Refactoring.BillingConsole
     {
         static void Main(string[] args)
         {
+            Bootstraper.Initialize();
+
             int customerId = 0;
 
             Console.WriteLine("Enter the customer id [default = 1]:");
@@ -19,7 +22,7 @@ namespace Refactoring.BillingConsole
 
             if (Int32.TryParse(result, out customerId))
             {
-                BillingManager manager = new BillingManager();
+                IBillingManager manager = ServiceLocator.Current.GetInstance<IBillingManager>();
                 string statement = manager.GenerateStatement(customerId);
                 Console.Write(statement);
             }

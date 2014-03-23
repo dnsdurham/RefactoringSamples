@@ -16,21 +16,29 @@ namespace Refactoring.Managers
         string GenerateHtmlStatement(int customerId);
     }
 
-    public class BillingManager : ManagerBase, IBillingManager
+    public class BillingManager : IBillingManager
     {
         // TODO: Other potential refactorings:
         // 1. Use a string template for text/html and collapse to a single GenerateStatement method
         // 2. Move the calculation of the total amount into a method in the PricingEngine that recursively calls GetPrice
- 
+
+
+        private ICustomerAccessor _customerAccessor;
+        private IPricingEngine _pricingEngine;
+        private IFrequentRenterEngine _renterEngine;
+
+        public BillingManager(ICustomerAccessor customerAccessor, IPricingEngine pricingEngine, IFrequentRenterEngine renterEngine)
+        {
+            _customerAccessor = customerAccessor;
+            _pricingEngine = pricingEngine;
+            _renterEngine = renterEngine;
+        }
+
         public string GenerateStatement(int customerId)
         {
             double totalAmount = 0;
 
-            ICustomerAccessor custAccessor = this.AccessorFactory.CreateAccessor<ICustomerAccessor>(); // using our factory DI pattern
-            Customer customer = custAccessor.GetCustomerById(customerId);
-
-            IPricingEngine pricingEngine = this.EngineFactory.CreateEngine<IPricingEngine>();
-            IFrequentRenterEngine frequentRenterEngine = this.EngineFactory.CreateEngine<IFrequentRenterEngine>();
+            Customer customer = _customerAccessor.GetCustomerById(customerId);
 
             // setup the statement string builder and add the statement header
             StringBuilder sb = new StringBuilder();
@@ -42,10 +50,10 @@ namespace Refactoring.Managers
             foreach (var rental in customer.Rentals)
             {
                 // create statement line for this rental
-                sb.AppendLine(rental.MovieName + " " + pricingEngine.GetPrice(rental).ToString());
+                sb.AppendLine(rental.MovieName + " " + _pricingEngine.GetPrice(rental).ToString());
                 
                 // sum the total amount
-                totalAmount += pricingEngine.GetPrice(rental);
+                totalAmount += _pricingEngine.GetPrice(rental);
             } 
 
             // add footer line that also show total frequent renter points earned
@@ -53,7 +61,7 @@ namespace Refactoring.Managers
             sb.AppendLine("Amount owed is " + totalAmount.ToString());
             sb.AppendLine();
             sb.Append("You have earned " 
-                + frequentRenterEngine.GetTotalPoints(customer.Rentals).ToString() 
+                + _renterEngine.GetTotalPoints(customer.Rentals).ToString() 
                 + " frequent renter points");
 
             return sb.ToString();
@@ -63,11 +71,7 @@ namespace Refactoring.Managers
         {
             double totalAmount = 0;
 
-            ICustomerAccessor custAccessor = this.AccessorFactory.CreateAccessor<ICustomerAccessor>(); // using our factory DI pattern
-            Customer customer = custAccessor.GetCustomerById(customerId);
-
-            IPricingEngine pricingEngine = this.EngineFactory.CreateEngine<IPricingEngine>();
-            IFrequentRenterEngine frequentRenterEngine = this.EngineFactory.CreateEngine<IFrequentRenterEngine>();
+            Customer customer = _customerAccessor.GetCustomerById(customerId);
 
             // setup the statement string builder and add the statement header
             StringBuilder sb = new StringBuilder();
@@ -79,10 +83,10 @@ namespace Refactoring.Managers
             foreach (var rental in customer.Rentals)
             {
                 // create statement line for this rental
-                sb.AppendLine(rental.MovieName + " " + pricingEngine.GetPrice(rental).ToString() + "<BR>");
+                sb.AppendLine(rental.MovieName + " " + _pricingEngine.GetPrice(rental).ToString() + "<BR>");
 
                 // sum the total amount
-                totalAmount += pricingEngine.GetPrice(rental);
+                totalAmount += _pricingEngine.GetPrice(rental);
             }
 
             // add footer line that also show total frequent renter points earned
@@ -90,7 +94,7 @@ namespace Refactoring.Managers
             sb.AppendLine("<P>Amount owed is <EM>" + totalAmount.ToString() + "</EM><P>");
             sb.AppendLine();
             sb.Append("You have earned <EM>"
-                + frequentRenterEngine.GetTotalPoints(customer.Rentals).ToString()
+                + _renterEngine.GetTotalPoints(customer.Rentals).ToString()
                 + "</EM> frequent renter points");
 
             return sb.ToString();

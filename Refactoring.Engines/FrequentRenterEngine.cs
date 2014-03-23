@@ -11,7 +11,7 @@ namespace Refactoring.Engines
     {
         int GetTotalPoints(Rental[] rentals);
     }
-    class FrequentRenterEngine : IFrequentRenterEngine
+    public class FrequentRenterEngine : IFrequentRenterEngine
     {
         public int GetTotalPoints(Rental[] rentals)
         {
