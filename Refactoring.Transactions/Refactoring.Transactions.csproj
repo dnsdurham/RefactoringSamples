@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A7821A13-C0DF-449E-AAB9-43EFD6FD31D1}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{EFEC2529-D0C3-45FD-9A8E-200EFF797770}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Refactoring.BillingConsole</RootNamespace>
-    <AssemblyName>Refactoring.BillingConsole</AssemblyName>
+    <RootNamespace>Refactoring.Transactions</RootNamespace>
+    <AssemblyName>Refactoring.Transactions</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -38,17 +36,6 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\CommonServiceLocator.1.2\lib\portable-windows8+net40+sl5+windowsphone8\Microsoft.Practices.ServiceLocation.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Practices.Unity, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Unity.3.0.1304.1\lib\Net45\Microsoft.Practices.Unity.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Practices.Unity.Configuration">
-      <HintPath>..\packages\Unity.3.0.1304.1\lib\Net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -59,36 +46,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bootstraper.cs" />
-    <Compile Include="ClientDataContext.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="IDbContext.cs" />
+    <Compile Include="IDbSetFactory.cs" />
+    <Compile Include="IUnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Refactoring.DataContracts\Refactoring.DataContracts.csproj">
-      <Project>{0ad843c8-abec-4de0-b186-6e9d0a1fa16c}</Project>
-      <Name>Refactoring.DataContracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Refactoring.Engines\Refactoring.Engines.csproj">
-      <Project>{08e6560a-99a0-4b4f-9cb2-28065b326aa2}</Project>
-      <Name>Refactoring.Engines</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Refactoring.Managers\Refactoring.Managers.csproj">
-      <Project>{edfd9719-dace-45cb-bb95-508dbb1248a8}</Project>
-      <Name>Refactoring.Managers</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Refactoring.ResourceAccessors\Refactoring.ResourceAccessors.csproj">
-      <Project>{a0b2f1f8-8d90-4ad9-b048-6bb9190e5662}</Project>
-      <Name>Refactoring.ResourceAccessors</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Refactoring.Transactions\Refactoring.Transactions.csproj">
-      <Project>{efec2529-d0c3-45fd-9a8e-200eff797770}</Project>
-      <Name>Refactoring.Transactions</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
