@@ -1,5 +1,5 @@
 ﻿using Refactoring.DataContracts;
-using Refactoring.Transactions;
+using Refactoring.ResourceAccessors;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -10,12 +10,12 @@ using System.Threading.Tasks;
 
 namespace Refactoring.DataClient
 {
-    public class EntityRepository<T> : IEntityRepository<T> where T : class
+    public class EntityAccessor<T> : IEntityAccessor<T> where T : class
     {
         private readonly DbSet<T> _dbSet;
         private readonly IDbSetFactory _dbSetFactory;
 
-        public EntityRepository(IDbSetFactory dbSetFactory)
+        public EntityAccessor(IDbSetFactory dbSetFactory)
         {
             _dbSet = dbSetFactory.CreateDbSet<T>();
             _dbSetFactory = dbSetFactory;

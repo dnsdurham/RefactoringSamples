@@ -85,10 +85,6 @@
       <Project>{a0b2f1f8-8d90-4ad9-b048-6bb9190e5662}</Project>
       <Name>Refactoring.ResourceAccessors</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Refactoring.Transactions\Refactoring.Transactions.csproj">
-      <Project>{efec2529-d0c3-45fd-9a8e-200eff797770}</Project>
-      <Name>Refactoring.Transactions</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

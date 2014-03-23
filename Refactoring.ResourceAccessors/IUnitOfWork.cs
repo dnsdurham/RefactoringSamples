@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Refactoring.Transactions
+namespace Refactoring.ResourceAccessors
 {
     public interface IUnitOfWork
     {

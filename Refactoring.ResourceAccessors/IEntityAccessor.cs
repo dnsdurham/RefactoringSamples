@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Refactoring.DataContracts
 {
-    public interface IEntityRepository<T> where T : class
+    public interface IEntityAccessor<T> where T : class
     {
         IQueryable<T> AsQueryable();
         IEnumerable<T> GetAll(params Expression<Func<T, object>>[] includeProperties);

@@ -1,5 +1,5 @@
 ﻿using Refactoring.DataContracts;
-using Refactoring.Transactions;
+using Refactoring.ResourceAccessors;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;

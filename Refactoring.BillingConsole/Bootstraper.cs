@@ -3,7 +3,6 @@ using Microsoft.Practices.Unity;
 using Refactoring.Engines;
 using Refactoring.Managers;
 using Refactoring.ResourceAccessors;
-using Refactoring.Transactions;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
