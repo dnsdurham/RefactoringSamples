@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Practices.ServiceLocation;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,22 +16,7 @@ namespace Refactoring.Engines
     {
         public T CreateEngine<T>() where T : class
         {
-            // Evaluate the class type name and return the correct engine
-            // NOTE: We expect an interface for an engine (not an engine) to be passed in
-            string typeName = typeof(T).Name;
-            switch (typeName)
-            {
-                case "IPricingEngine":
-                    {
-                        return new PricingEngine() as T;
-                    }
-                case "IFrequentRenterEngine":
-                    {
-                        return new FrequentRenterEngine() as T;
-                    }
-                default:
-                    throw new System.ArgumentException(typeName + " is not supported by the factory");
-            }
+            return ServiceLocator.Current.GetInstance<T>();
         }
     }
 }

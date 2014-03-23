@@ -3,19 +3,41 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Refactoring.Managers;
 using Refactoring.ManagerTests.Properties;
 using Refactoring.ManagerTests.Mocks;
+using Microsoft.Practices.Unity;
+using Refactoring.ResourceAccessors;
+using Refactoring.Engines;
+using Microsoft.Practices.ServiceLocation;
 
 namespace Refactoring.ManagerTests
 {
     [TestClass]
     public class BillingManagerTests
     {
+
+        [TestInitialize]
+        public void Setup()
+        {
+            var container = new UnityContainer();
+
+            container.RegisterType<IAccessorFactory, MockAccessorFactory>();
+            container.RegisterType<IEngineFactory, MockEngineFactory>();
+
+            container.RegisterType<IBillingManager, BillingManager>();
+            container.RegisterType<IFrequentRenterEngine, MockFrequentRenterEngine>();
+            container.RegisterType<IPricingEngine, MockPricingEngine>();
+            container.RegisterType<ICustomerAccessor, MockCustomerAccessor>();
+
+            UnityServiceLocator locator = new UnityServiceLocator(container);
+            ServiceLocator.SetLocatorProvider(() => locator);
+        }
+
         // NOTE: These tests are representative only. There would obviously be a lot more tests covering other permutations
 
         [TestMethod]
         public void BillingManager_GenerateStatement()
         {
             // This test is not using any mock factories or engines
-            BillingManager manager = new BillingManager();
+            IBillingManager manager = ServiceLocator.Current.GetInstance<IBillingManager>();
 
             string statement = manager.GenerateStatement(1);
 
@@ -28,7 +50,7 @@ namespace Refactoring.ManagerTests
         public void BillingManager_GenerateHtmlStatement()
         {
             // This test is not using any mock factories or engines
-            BillingManager manager = new BillingManager();
+            IBillingManager manager = ServiceLocator.Current.GetInstance<IBillingManager>();
 
             string statement = manager.GenerateHtmlStatement(1);
 
@@ -41,11 +63,7 @@ namespace Refactoring.ManagerTests
         public void BillingManager_GenerateStatementMocks()
         {
             // This test will show how to override the factories on the billing manager to use mock factories 
-            BillingManager manager = new BillingManager();
-
-            // Here is where I replace the default production factories with Mocks
-            manager.EngineFactory = new MockEngineFactory();
-            manager.AccessorFactory = new MockAccessorFactory();
+            IBillingManager manager = ServiceLocator.Current.GetInstance<IBillingManager>();
 
             string statement = manager.GenerateStatement(1);
 

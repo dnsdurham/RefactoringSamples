@@ -1,4 +1,5 @@
-﻿using Refactoring.Engines;
+﻿using Microsoft.Practices.ServiceLocation;
+using Refactoring.Engines;
 using Refactoring.ResourceAccessors;
 using System;
 using System.Collections.Generic;
@@ -14,14 +15,15 @@ namespace Refactoring.Managers
         // note: we are using a property instead of passing these dependencies in via the method calls
         // note: the reason we allow you to set these factories is so that we can override them in unit tests
 
-        private IAccessorFactory _accessorFactory = new AccessorFactory();
+        private IAccessorFactory _accessorFactory = ServiceLocator.Current.GetInstance<IAccessorFactory>();
+
         public IAccessorFactory AccessorFactory
         {
             get { return _accessorFactory; }
             set { _accessorFactory = value; }
         }
 
-        private IEngineFactory _engineFactory = new EngineFactory();
+        private IEngineFactory _engineFactory = ServiceLocator.Current.GetInstance<IEngineFactory>();
         public IEngineFactory EngineFactory
         {
             get { return _engineFactory; }

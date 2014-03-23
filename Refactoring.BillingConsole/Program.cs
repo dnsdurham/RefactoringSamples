@@ -11,6 +11,8 @@ namespace Refactoring.BillingConsole
     {
         static void Main(string[] args)
         {
+            Bootstraper.Initialize();
+
             int customerId = 0;
 
             Console.WriteLine("Enter the customer id [default = 1]:");
