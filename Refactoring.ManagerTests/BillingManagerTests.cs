@@ -19,9 +19,6 @@ namespace Refactoring.ManagerTests
         {
             var container = new UnityContainer();
 
-            container.RegisterType<IAccessorFactory, MockAccessorFactory>();
-            container.RegisterType<IEngineFactory, MockEngineFactory>();
-
             container.RegisterType<IBillingManager, BillingManager>();
             container.RegisterType<IFrequentRenterEngine, MockFrequentRenterEngine>();
             container.RegisterType<IPricingEngine, MockPricingEngine>();

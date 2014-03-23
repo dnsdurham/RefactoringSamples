@@ -17,9 +17,6 @@ namespace Refactoring.BillingConsole
         public static void Initialize()
         {
             var container = new UnityContainer();
-
-            container.RegisterType<IAccessorFactory, AccessorFactory>();
-            container.RegisterType<IEngineFactory, EngineFactory>();
             
             container.RegisterType<IBillingManager, BillingManager>();
             container.RegisterType<IFrequentRenterEngine, FrequentRenterEngine>();

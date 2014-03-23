@@ -62,9 +62,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="BillingManagerTests.cs" />
-    <Compile Include="Mocks\MockAccessorFactory.cs" />
     <Compile Include="Mocks\MockCustomerAccessor.cs" />
-    <Compile Include="Mocks\MockEngineFactory.cs" />
     <Compile Include="Mocks\MockFrequentRenterEngine.cs" />
     <Compile Include="Mocks\MockPricingEngine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
