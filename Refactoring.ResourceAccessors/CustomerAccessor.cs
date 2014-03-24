@@ -11,7 +11,7 @@ namespace Refactoring.ResourceAccessors
     {
         Customer GetCustomerById(int customerId);
     }
-    class CustomerAccessor : ICustomerAccessor
+    public class CustomerAccessor : ICustomerAccessor
     {
         public Customer GetCustomerById(int customerId)
         {

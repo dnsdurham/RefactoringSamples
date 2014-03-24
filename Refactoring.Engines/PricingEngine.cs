@@ -11,7 +11,7 @@ namespace Refactoring.Engines
     {
         double GetPrice(Rental rental);
     }
-    class PricingEngine : IPricingEngine
+    public class PricingEngine : IPricingEngine
     {
         public double GetPrice(Rental rental)
         {

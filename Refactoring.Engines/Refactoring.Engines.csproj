@@ -39,7 +39,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EngineFactory.cs" />
     <Compile Include="FrequentRenterEngine.cs" />
     <Compile Include="PricingEngine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -49,6 +48,9 @@
       <Project>{0ad843c8-abec-4de0-b186-6e9d0a1fa16c}</Project>
       <Name>Refactoring.DataContracts</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
