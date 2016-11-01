@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.IO;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Refactoring.Managers;
 using Refactoring.ManagerTests.Properties;
@@ -12,6 +12,7 @@ namespace Refactoring.ManagerTests
         // NOTE: These tests are representative only. There would obviously be a lot more tests covering other permutations
 
         [TestMethod]
+        [DeploymentItem(@"Resources\SampleStatement.txt")]
         public void BillingManager_GenerateStatement()
         {
             // This test is not using any mock factories or engines
@@ -21,10 +22,11 @@ namespace Refactoring.ManagerTests
 
             // We are using a sample statement from a resource here but this might have to be more complicated
             // in the real world
-            Assert.AreEqual(Resources.SampleStatement, statement);
+            Assert.AreEqual(File.ReadAllText("SampleStatement.txt"), statement);
         }
 
         [TestMethod]
+        [DeploymentItem(@"Resources\SampleHtmlStatement.txt")]
         public void BillingManager_GenerateHtmlStatement()
         {
             // This test is not using any mock factories or engines
@@ -34,10 +36,11 @@ namespace Refactoring.ManagerTests
 
             // We are using a sample statement from a resource here but this might have to be more complicated
             // in the real world
-            Assert.AreEqual(Resources.SampleHtmlStatement, statement);
+            Assert.AreEqual(File.ReadAllText("SampleHtmlStatement.txt"), statement);
         }
         
         [TestMethod]
+        [DeploymentItem(@"Resources\MockSampleStatement.txt")]
         public void BillingManager_GenerateStatementMocks()
         {
             // This test will show how to override the factories on the billing manager to use mock factories 
@@ -50,7 +53,7 @@ namespace Refactoring.ManagerTests
             string statement = manager.GenerateStatement(1);
 
             // Note that we use the "MockSampleStatament" here for comparison
-            Assert.AreEqual(Resources.MockSampleStatement, statement);
+            Assert.AreEqual(File.ReadAllText("MockSampleStatement.txt"), statement);
         }
     }
 }

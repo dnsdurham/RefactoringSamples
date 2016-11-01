@@ -1,0 +1,12 @@
+﻿<H1>Rental Record for <EM>Gern Blansten</EM></H1><P>
+
+Jaws 2<BR>
+Star Wars 3.5<BR>
+Toy Story 3<BR>
+Wall-E 1.5<BR>
+Thor 3<BR>
+Superman 6<BR>
+
+<P>Amount owed is <EM>19</EM><P>
+
+You have earned <EM>7</EM> frequent renter points

@@ -1,0 +1,12 @@
+﻿Rental Record for Gern Blansten
+
+Jaws 2
+Star Wars 3.5
+Toy Story 3
+Wall-E 1.5
+Thor 3
+Superman 6
+
+Amount owed is 19
+
+You have earned 7 frequent renter points
