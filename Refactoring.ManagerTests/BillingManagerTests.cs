@@ -9,37 +9,7 @@ namespace Refactoring.ManagerTests
     [TestClass]
     public class BillingManagerTests
     {
-        // NOTE: These tests are representative only. There would obviously be a lot more tests covering other permutations
-
-        //[TestMethod]
-        //[TestCategory("Unit: Billing Manager")]
-        //[DeploymentItem(@"Resources\SampleStatement.txt")]
-        //public void BillingManager_GenerateStatement()
-        //{
-        //    // This test is not using any mock factories or engines
-        //    BillingManager manager = new BillingManager();
-
-        //    string statement = manager.GenerateStatement(1);
-
-        //    // We are using a sample statement from a resource here but this might have to be more complicated
-        //    // in the real world
-        //    Assert.AreEqual(File.ReadAllText("SampleStatement.txt"), statement);
-        //}
-
-        //[TestMethod]
-        //[TestCategory("Unit: Billing Manager")]
-        //[DeploymentItem(@"Resources\SampleHtmlStatement.txt")]
-        //public void BillingManager_GenerateHtmlStatement()
-        //{
-        //    // This test is not using any mock factories or engines
-        //    BillingManager manager = new BillingManager();
-
-        //    string statement = manager.GenerateHtmlStatement(1);
-
-        //    // We are using a sample statement from a resource here but this might have to be more complicated
-        //    // in the real world
-        //    Assert.AreEqual(File.ReadAllText("SampleHtmlStatement.txt"), statement);
-        //}
+        // *NOTE: This is a new version of the Billing Manager unit test that uses mocking for the new engines. The original unit test has been moved to Integration tests
         
         [TestMethod]
         [TestCategory("Unit: Billing Manager")]
@@ -57,6 +27,26 @@ namespace Refactoring.ManagerTests
 
             // Note that we use the "MockSampleStatament" here for comparison
             Assert.AreEqual(File.ReadAllText("MockSampleStatement.txt"), statement);
+        }
+
+        // *NOTE: This unit test is added for the new HTML statement feature
+
+        [TestMethod]
+        [TestCategory("Unit: Billing Manager")]
+        [DeploymentItem(@"Resources\MockSampleHtmlStatement.txt")]
+        public void BillingManager_GenerateHtmlStatementMocks()
+        {
+            // This test will show how to override the factories on the billing manager to use mock factories 
+            BillingManager manager = new BillingManager();
+
+            // Here is where I replace the default production factories with Mocks
+            manager.EngineFactory = new MockEngineFactory();
+            manager.AccessorFactory = new MockAccessorFactory();
+
+            string statement = manager.GenerateHtmlStatement(1);
+
+            // Note that we use the "MockSampleHtmlStatament" here for comparison
+            Assert.AreEqual(File.ReadAllText("MockSampleHtmlStatement.txt"), statement);
         }
     }
 }

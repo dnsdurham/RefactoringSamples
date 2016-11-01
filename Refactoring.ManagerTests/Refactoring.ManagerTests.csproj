@@ -89,6 +89,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\MockSampleHtmlStatement.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\MockSampleStatement.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
