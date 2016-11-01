@@ -1,11 +1,11 @@
-﻿using System;
+﻿using System.IO;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Refactoring.Managers;
-using Refactoring.ManagerTests.Properties;
 
 namespace Refactoring.ManagerTests
 {
     [TestClass]
+    [DeploymentItem(@"Resources/SampleStatement.txt")]
     public class BillingManagerTests
     {
         [TestMethod]
@@ -15,7 +15,7 @@ namespace Refactoring.ManagerTests
 
             string statement = manager.GenerateStatement(1);
 
-            Assert.AreEqual(Resources.SampleStatement, statement);
+            Assert.AreEqual(File.ReadAllText("SampleStatement.txt"), statement);
         }
     }
 }
