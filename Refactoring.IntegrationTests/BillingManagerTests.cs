@@ -1,18 +1,15 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Refactoring.Managers;
-using Refactoring.ManagerTests.Properties;
-using Refactoring.ManagerTests.Mocks;
 
-namespace Refactoring.ManagerTests
+namespace Refactoring.IntegrationTests
 {
     [TestClass]
     public class BillingManagerTests
     {
-        // NOTE: These tests are representative only. There would obviously be a lot more tests covering other permutations
-
         //[TestMethod]
-        //[TestCategory("Unit: Billing Manager")]
+        //[TestCategory("Integration: Billing Manager")]
         //[DeploymentItem(@"Resources\SampleStatement.txt")]
         //public void BillingManager_GenerateStatement()
         //{
@@ -27,7 +24,7 @@ namespace Refactoring.ManagerTests
         //}
 
         //[TestMethod]
-        //[TestCategory("Unit: Billing Manager")]
+        //[TestCategory("Integration: Billing Manager")]
         //[DeploymentItem(@"Resources\SampleHtmlStatement.txt")]
         //public void BillingManager_GenerateHtmlStatement()
         //{
@@ -40,23 +37,5 @@ namespace Refactoring.ManagerTests
         //    // in the real world
         //    Assert.AreEqual(File.ReadAllText("SampleHtmlStatement.txt"), statement);
         //}
-        
-        [TestMethod]
-        [TestCategory("Unit: Billing Manager")]
-        [DeploymentItem(@"Resources\MockSampleStatement.txt")]
-        public void BillingManager_GenerateStatementMocks()
-        {
-            // This test will show how to override the factories on the billing manager to use mock factories 
-            BillingManager manager = new BillingManager();
-
-            // Here is where I replace the default production factories with Mocks
-            manager.EngineFactory = new MockEngineFactory();
-            manager.AccessorFactory = new MockAccessorFactory();
-
-            string statement = manager.GenerateStatement(1);
-
-            // Note that we use the "MockSampleStatament" here for comparison
-            Assert.AreEqual(File.ReadAllText("MockSampleStatement.txt"), statement);
-        }
     }
 }
